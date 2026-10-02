@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvl061l8yt5j2"]
+
+[ext_resource type="PackedScene" uid="uid://w51lmw0dq8dw" path="res://Scenes/Player/Player.tscn" id="1_24gi2"]
+[ext_resource type="Material" uid="uid://dkvpsqwysb4g1" path="res://Assets/WallMaterial.tres" id="1_d83gb"]
+[ext_resource type="Material" uid="uid://dro32a3oyr3nm" path="res://Assets/FloorMaterial.tres" id="1_sg5r5"]
+
+[node name="TestRoom" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = ExtResource("1_sg5r5")
+
+[node name="Wall1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -10)
+use_collision = true
+size = Vector3(20, 10, 1)
+material = ExtResource("1_d83gb")
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 10)
+use_collision = true
+size = Vector3(20, 10, 1)
+material = ExtResource("1_d83gb")
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 0)
+use_collision = true
+size = Vector3(1, 10, 20)
+material = ExtResource("1_d83gb")
+
+[node name="Wall4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 0)
+use_collision = true
+size = Vector3(1, 10, 20)
+material = ExtResource("1_d83gb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.865366, 0.0337827, 0.5, -0.430459, 0.560985, 0.707107, -0.256605, -0.827136, 0.5, 0, 0, 0)
+light_energy = 0.5
+
+[node name="Player" parent="." instance=ExtResource("1_24gi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="RoomLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_color = Color(0.666569, 0.666569, 0.666569, 1)
+light_energy = 4.0
+shadow_enabled = true
+omni_range = 50.0
