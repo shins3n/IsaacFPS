@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://h5gointl56b4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m74t7"]
+radius = 0.4
+height = 1.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_ucmt6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o0hk"]
+albedo_color = Color(0.900786, 0, 0.00243513, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_m74t7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ucmt6")
+surface_material_override/0 = SubResource("StandardMaterial3D_8o0hk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+path_max_distance = 50.01

@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2ogkqms02gye"]
+
+[ext_resource type="Material" uid="uid://dkvpsqwysb4g1" path="res://Assets/WallMaterial.tres" id="2_l7jsd"]
+[ext_resource type="Material" uid="uid://dvowck6pyliwc" path="res://Assets/RoofMaterials.tres" id="3_i10yc"]
+[ext_resource type="PackedScene" uid="uid://w51lmw0dq8dw" path="res://Scenes/Player/Player.tscn" id="4_sm600"]
+[ext_resource type="PackedScene" uid="uid://bkt4mluk0yr0n" path="res://Scenes/Interactables/Chest.tscn" id="5_026ov"]
+[ext_resource type="PackedScene" uid="uid://c8h6lskb0jgnw" path="res://Scenes/UI/HUD.tscn" id="5_tq32q"]
+[ext_resource type="PackedScene" uid="uid://cnn7bsapt1jn7" path="res://Scenes/Interactables/Door.tscn" id="6_vcc3o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibr62"]
+albedo_color = Color(0.909804, 0.890196, 0.215686, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_88kav"]
+vertices = PackedVector3Array(-13.5, 0.6, -13.5, -13.5, 0.6, 13.5, 13.5, 0.6, 13.5, 13.5, 0.6, -13.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ktbn5"]
+size = Vector2(28, 28)
+
+[node name="TreasureRoom" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.876, -0.5, 0.009)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_ibr62")
+
+[node name="Wall1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.5, -15)
+use_collision = true
+size = Vector3(30, 15, 1)
+material = ExtResource("2_l7jsd")
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.5, 15)
+use_collision = true
+size = Vector3(30, 15, 1)
+material = ExtResource("2_l7jsd")
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 6.5, 0)
+use_collision = true
+size = Vector3(1, 15, 30)
+material = ExtResource("2_l7jsd")
+
+[node name="Wall4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 6.5, 0)
+use_collision = true
+size = Vector3(1, 15, 30)
+material = ExtResource("2_l7jsd")
+
+[node name="Roof" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.741, 13.5, 0.202)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = ExtResource("3_i10yc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.865366, 0.0337827, 0.5, -0.430459, 0.560985, 0.707107, -0.256605, -0.827136, 0.5, 0, 0, 0)
+light_energy = 0.5
+
+[node name="Player" parent="." instance=ExtResource("4_sm600")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="RoomLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_color = Color(0.666569, 0.666569, 0.666569, 1)
+light_energy = 4.0
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="HUD" parent="." instance=ExtResource("5_tq32q")]
+
+[node name="NavRegion" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_88kav")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="NavRegion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
+mesh = SubResource("PlaneMesh_ktbn5")
+
+[node name="Chest" parent="." instance=ExtResource("5_026ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="DoorBack" parent="." instance=ExtResource("6_vcc3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+target_scene = "res://Scenes/Rooms/TestRoom.tscn"

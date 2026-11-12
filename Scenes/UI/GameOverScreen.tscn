@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://hvmq20be0w0q"]
+
+[ext_resource type="Script" uid="uid://cmcwh7a10ndx3" path="res://Scripts/GameOverScreen.gd" id="1_kjtn0"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource("1_kjtn0")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.305882)
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -11.5
+offset_right = 91.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.678431, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "К сожалению я умер((("
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 103.0
+offset_right = 60.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Начать заново"

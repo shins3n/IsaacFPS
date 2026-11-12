@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnn7bsapt1jn7"]
+
+[ext_resource type="Script" uid="uid://og4n0vu1yxw4" path="res://Scripts/Door.gd" id="1_t4lgi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v52fu"]
+size = Vector3(5, 10, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2dg0v"]
+size = Vector3(4.5, 9, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_repw0"]
+albedo_color = Color(0.366787, 0.344526, 0.041808, 1)
+
+[node name="Door" type="Area3D"]
+script = ExtResource("1_t4lgi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v52fu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2dg0v")
+surface_material_override/0 = SubResource("StandardMaterial3D_repw0")
