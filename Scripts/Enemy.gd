@@ -77,3 +77,5 @@ func take_damage(amount: int) -> void:
 func die() -> void:
 	print(" Враг убит!")
 	queue_free()
+	var current_scene_path = get_tree().current_scene.scene_file_path
+	GameState.mark_room_cleared(current_scene_path)

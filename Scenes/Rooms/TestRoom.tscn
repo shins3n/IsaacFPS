@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvl061l8yt5j2"]
+[gd_scene load_steps=12 format=3 uid="uid://cvl061l8yt5j2"]
 
+[ext_resource type="Script" uid="uid://dd2em0u5pum5a" path="res://Scripts/RoomManager.gd" id="1_0uqm1"]
 [ext_resource type="PackedScene" uid="uid://w51lmw0dq8dw" path="res://Scenes/Player/Player.tscn" id="1_24gi2"]
 [ext_resource type="Material" uid="uid://dkvpsqwysb4g1" path="res://Assets/WallMaterial.tres" id="1_d83gb"]
 [ext_resource type="Material" uid="uid://dro32a3oyr3nm" path="res://Assets/FloorMaterial.tres" id="1_sg5r5"]
@@ -17,6 +18,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 size = Vector2(28, 28)
 
 [node name="TestRoom" type="Node3D"]
+script = ExtResource("1_0uqm1")
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.876, -0.5, 0.009)

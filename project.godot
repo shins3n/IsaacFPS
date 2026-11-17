@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="isaac"
-run/main_scene="uid://cvl061l8yt5j2"
+run/main_scene="uid://b0y0a77ri57oj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://Scripts/Globals/GameState.gd"
 
 [input]
 

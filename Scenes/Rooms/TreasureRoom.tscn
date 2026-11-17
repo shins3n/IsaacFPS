@@ -83,5 +83,5 @@ mesh = SubResource("PlaneMesh_ktbn5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="DoorBack" parent="." instance=ExtResource("6_vcc3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 14)
 target_scene = "res://Scenes/Rooms/TestRoom.tscn"

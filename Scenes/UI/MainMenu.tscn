@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0y0a77ri57oj"]
+
+[ext_resource type="Script" uid="uid://drlgsxbck2fwj" path="res://Scripts/MainMenu.gd" id="1_g18y6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g18y6")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.829665, 0.560061, 0.133323, 0.85098)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.498039, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Isaac FPS"
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Играть"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Выйти"

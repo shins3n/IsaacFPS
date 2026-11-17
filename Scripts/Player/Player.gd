@@ -107,10 +107,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# --- Escape освобождает курсор ---
 	if event.is_action_pressed("pause"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if not get_tree().paused:
+			# Открываем меню паузы
+			var pause_menu = preload("res://Scenes/UI/PauseMenu.tscn").instantiate()
+			get_tree().root.add_child(pause_menu)
 
 # ============ ФИЗИКА ============
 

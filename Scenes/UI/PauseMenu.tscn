@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dri2rorkf7ouk"]
+
+[ext_resource type="Script" uid="uid://dfy2qwwgnggfj" path="res://Scripts/PauseMenu.gd" id="1_eod5q"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_eod5q")
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 429.0
+offset_top = -177.0
+offset_right = -429.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.831373, 0.560784, 0.133333, 0.85098)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.87
+anchor_right = 0.5
+anchor_bottom = 0.87
+offset_left = -53.0
+offset_top = -84.7601
+offset_right = 53.0
+offset_bottom = 84.2399
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.697404, 0.095082, 0.0881026, 1)
+theme_override_font_sizes/font_size = 32
+text = "ПАУЗА"
+
+[node name="ResumeButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Продолжить"
+
+[node name="MenuButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Выйти"
